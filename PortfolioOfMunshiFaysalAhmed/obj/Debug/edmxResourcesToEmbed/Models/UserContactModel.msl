@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="portfolioModelStoreContainer" CdmEntityContainer="portfolioEntities">
+    <EntitySetMapping Name="user_msg">
+      <EntityTypeMapping TypeName="portfolioModel.user_msg">
+        <MappingFragment StoreEntitySet="user_msg">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="message" ColumnName="message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,134 @@
+﻿@model PortfolioOfMunshiFaysalAhmed.Models.user_msg
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Contact With Munshi Faysal Ahmed</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="~/Content/img/favicon.png" rel="icon">
+    <link href="~/Content/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/Content/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/Content/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/Content/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/Content/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/Content/css/StyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container" style="margin-top: 40px;">
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")
+
+
+        @using (Html.BeginForm("Index", "User", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h2>Contact With Munshi Faysal</h2>
+                <hr />
+                <div class="container">
+                    <div class="user-contact-area" style=" margin: auto; width: 70%; padding: 10px;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3>Please Fillup this form</h3>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-6" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-6" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.subject, htmlAttributes: new { @class = "control-label col-md-6" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.subject, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.subject, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.message, htmlAttributes: new { @class = "control-label col-md-6" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.message, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.message, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10 mt-3">
+                                        
+                                        @*Change your actionname and controller here*@
+                                        @using (Html.BeginForm("Index", "User"))
+                                        {
+                                            <input type="submit" value="Submit" class="btn btn-success" name="submitButton" onclick="javascript:return ShowMessage();" />
+
+                                        }
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6" style="margin-top: 100px;">
+                                <img src="~/Content/img/p3.jpg" class="img-fluid" />
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            </div>
+        }
+        <hr />
+
+        <div>
+            @Html.ActionLink("Back", "Index", "Home")
+        </div>
+        @if (ViewBag.Message != null)
+            {
+                <script type="text/javascript">
+                    window.onload = function () {
+                        alert("@ViewBag.Message")
+                    };
+
+                </script>
+            }
+        
+
+
+
+
+
+
+
+    </div>
+
+</body>
+</html>
